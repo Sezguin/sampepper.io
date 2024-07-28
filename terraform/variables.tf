@@ -27,3 +27,9 @@ variable "dynamodb_table" {
   type        = string
   default     = "terraform-state-lock-table-online-resume-sam-pepper"
 }
+
+variable "dynamodb_table_again" {
+  description = "The name of the DynamoDB table used for state locking."
+  type        = string
+  default     = "terraform-state-lock-table-online-resume-sam-pepper-again"
+}
