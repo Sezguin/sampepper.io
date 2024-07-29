@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket         = var.state_bucket_name
-    key            = var.state_bucket_key
-    region         = var.region
+    bucket         = "terraform-state-bucket-online-resume"
+    key            = "users/sam-pepper/terraform.tfstate"
+    region         = "eu-west-2"
     encrypt        = true
-    dynamodb_table = var.dynamodb_table
+    dynamodb_table = "terraform-state-lock-table-online-resume-sam-pepper"
   }
 }
