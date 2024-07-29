@@ -30,7 +30,7 @@ resource "aws_s3_bucket_policy" "static_site_bucket_policy" {
   )
 }
 
-resource "aws_s3_object" "file" {
+resource "aws_s3_object" "object" {
   for_each     = fileset(path.module, "content/**/*.{html,css,js}")
   bucket       = aws_s3_bucket.static_site_bucket.id
   key          = replace(each.value, "/^content//", "")
