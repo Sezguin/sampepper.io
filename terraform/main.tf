@@ -5,8 +5,8 @@ resource "aws_s3_bucket" "static_site_bucket" {
 resource "aws_s3_bucket_public_access_block" "bucket_access_block" {
   bucket = aws_s3_bucket.static_site_bucket.id
 
-  block_public_acls   = true
-  block_public_policy = true
+  block_public_acls   = false
+  block_public_policy = false
   ignore_public_acls  = true
   restrict_public_buckets = true
 }
@@ -23,8 +23,7 @@ resource "aws_s3_bucket_policy" "static_site_bucket_policy" {
           "Effect" : "Allow",
           "Principal" : "*",
           "Action" : [
-            "s3:GetObject",
-            "s3:PutObject"
+            "s3:GetObject"
           ],
           "Resource" : "arn:aws:s3:::${aws_s3_bucket.static_site_bucket.id}/*"
         }
