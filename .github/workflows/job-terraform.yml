@@ -57,7 +57,7 @@ jobs:
       - name: Plan Terraform changes
         id: plan
         working-directory: ./terraform
-        run: terraform plan -out=tfplan -var="bucket_name=terraform-state-bucket-online-resume" -var="dynamodb_table=terraform-state-lock-table-online-resume-sam-pepper"
+        run: terraform plan -out=tfplan
 
       - name: Post Plan Results to Pull Request
         if: github.ref != 'refs/heads/main'
